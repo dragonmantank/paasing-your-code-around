@@ -7,8 +7,8 @@ use PhpORM\Entity\EntityAbstract;
 class DrunkText extends EntityAbstract
 {
     protected $id;
-    protected $phoneNumber;
+    protected $phonenumber;
     protected $message;
-    protected $dateAdded;
+    protected $dateadded;
     protected $approved;
 }

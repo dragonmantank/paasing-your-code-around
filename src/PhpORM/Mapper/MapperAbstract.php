@@ -24,7 +24,7 @@ class MapperAbstract
     {
         $db = $this->getDb();
 
-        $sql = "SELECT * FROM `"  . $this->table . "` ORDER BY id ASC";
+        $sql = "SELECT * FROM "  . $this->table . " ORDER BY id ASC";
         $result = $db->fetchAll($sql);
 
         $data = array();
@@ -45,7 +45,7 @@ class MapperAbstract
     {
         $db = $this->getDb();
 
-        $sql = "SELECT * FROM `"  . $this->table . "` WHERE `".$key."` = :value ORDER BY id ASC";
+        $sql = "SELECT * FROM "  . $this->table . " WHERE ".$key." = :value ORDER BY id ASC";
         $result = $db->fetchAssoc($sql, array('value' => $value));
 
         $class = $this->entityClass;
@@ -55,7 +55,7 @@ class MapperAbstract
     public function findAllBy($key, $value)
     {
         $db = $this->getDb();
-        $sql = "SELECT * FROM `"  . $this->table . "` WHERE ".$key." = :value ORDER BY id ASC";
+        $sql = "SELECT * FROM "  . $this->table . " WHERE ".$key." = :value ORDER BY id ASC";
         $result = $db->fetchAll($sql, array('value' => $value));
 
         $data = array();
@@ -78,19 +78,20 @@ class MapperAbstract
     public function save($entity)
     {
         $db = $this->getDb();
-        $table = '`'.$this->table.'`';
+        $table = ''.$this->table.'';
         $objectData = $entity->toArray();
         foreach($objectData as $key => $value) {
             if(is_object($value) && get_class($value) == 'DateTime') {
                 $value = $value->format('Y-m-d H:i:s');
             }
-            $objectData['`'.$key.'`'] = $value;
-            unset($objectData[$key]);
+            $objectData[$key] = $value;
+            //unset($objectData[$key]);
         }
 
         if($entity->id) {
             $db->update($table, $objectData, array('id' => $entity->id));
         } else {
+            unset($objectData['id']);
             $db->insert($table, $objectData);
             $entity->id = $db->lastInsertId();
         }

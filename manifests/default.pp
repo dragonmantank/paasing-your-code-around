@@ -64,7 +64,7 @@ apache::vhost { 'paasing.hexxie.com':
   docroot       => '/var/www/public',
   port          => '80',
   env_variables => [
-    'APP_ENV local'
+    'APP_ENV vagrant'
   ],
   priority      => '1',
 }
