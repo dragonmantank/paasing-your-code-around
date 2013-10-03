@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for text in texts %}
+    <div class="drunk-text">
+        <span class="area-code">{{ text.phoneNumber }}</span>
+
+        <div class="text-message">
+            {{ text.message }}
+        </div>
+    </div>
+    {% endfor %}
+
+    </div>
+{% endblock %}

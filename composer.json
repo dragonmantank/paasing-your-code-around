@@ -1,0 +1,20 @@
+{
+    "require": {
+        "silex/silex": "1.*",
+        "igorw/config-service-provider": "v1.2.1",
+        "twig/twig": "1.12.*",
+        "symfony/twig-bridge" : "~2.3",
+        "symfony/translation": "~2.3",
+        "symfony/form": "~2.3",
+        "ruckusing/ruckusing-migrations": "dev-master",
+        "doctrine/dbal": "2.3.*",
+        "symfony/form": "~2.3",
+        "symfony/validator": "~2.3",
+        "symfony/config": "~2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}

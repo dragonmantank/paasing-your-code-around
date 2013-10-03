@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Submit a Text Message</h1>
+
+    {% if message %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
+
+    <form method="post">
+        {{ form_widget(form) }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
