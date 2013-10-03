@@ -7,12 +7,12 @@ $env = strtolower($env);
 $config = array(
     'db' => array(
         'driver' => 'pdo_mysql',
-        'host' => 'localhost',
+        'host' => getenv('OPENSHIFT_MYSQL_DB_HOST'),
         'dbname' => 'paasing',
-        'user' => 'root',
-        'password' => 'vagrant',
+        'user' => getenv('OPENSHIFT_MYSQL_DB_USERNAME'),
+        'password' => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
         'ruckus_type' => 'mysql',
-        'port' => 3306,
+        'port' => getenv('OPENSHIFT_MYSQL_DB_PORT'),
     ),
     'debug' => false,
 );

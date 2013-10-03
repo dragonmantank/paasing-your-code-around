@@ -14,7 +14,7 @@ fi
 
 ( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; /usr/local/zend/bin/php $OPENSHIFT_DATA_DIR/composer.phar install )
 
-cd $OPENSHIFT_DATA_DIR;
+cd $OPENSHIFT_REPO_DIR;
 /usr/local/zend/bin/php bin/ruckus.php db:setup
 /usr/local/zend/bin/php bin/ruckus.php db:migrate
 
