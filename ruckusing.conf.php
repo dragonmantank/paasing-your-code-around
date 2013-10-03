@@ -12,14 +12,18 @@ Valid types (adapters) are Postgres & MySQL:
 
 */
 
-$config = include_once 'app/config/config.php';
+if(is_file('app/config/config.php')) {
+    $config = include_once 'app/config/config.php';
+} else {
+    $config = include_once 'www/app/config/config.php';
+}
 
 return array(
     'db' => array(
         'development' => array(
-            'type'      => 'mysql',
+            'type'      => $config['db']['ruckus_type'],
             'host'      => $config['db']['host'],
-            'port'      => 3306,
+            'port'      => $config['db']['port'],
             'database'  => $config['db']['dbname'],
             'user'      => $config['db']['user'],
             'password'  => $config['db']['password'],

@@ -41,7 +41,7 @@ class DefaultController implements ControllerProviderInterface
             $drunkTextForm->bind($request);
             if($drunkTextForm->isValid()) {
                 $drunkText = new DrunkText($drunkTextForm->getData());
-                $drunkText->dateAdded = new \DateTime();
+                $drunkText->dateadded = new \DateTime();
 
                 $dtm = new DrunkTextMapper($app['db']);
                 $dtm->save($drunkText);
